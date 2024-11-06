@@ -36,3 +36,28 @@ pub fn part2() {
 
     println!("part2 output: {:?}", output_vec);
 }
+
+pub fn part3() {
+    //although i already made a dot product function in supporting.rs i am following the for loop
+    //method found in the third video.
+    let inputs = vec![1.0, 2.0, 3.0, 2.5];
+    let weights1 = vec![0.2, 0.8, -0.5, 1.0];
+    let weights2 = vec![0.5, -0.91, 0.26, -0.5];
+    let weights3 = vec![-0.26, -0.27, 0.17, 0.87];
+
+    let weights = vec![weights1, weights2, weights3];
+    let biases = vec![2.0, 3.0, 0.5];
+
+    let mut layered: Vec<f32> = Vec::new();
+    let zipped_weights_biases: Vec<(_, _)> = weights.iter().zip(biases.iter()).collect();
+    for (weight, bias) in zipped_weights_biases {
+        let mut neuron_output = 0.0;
+        for (ninput, weight) in inputs.iter().zip(weight.iter()) {
+            neuron_output += (ninput * weight);
+        }
+        neuron_output += bias;
+        layered.push(neuron_output);
+    }
+
+    println!("{:?}", layered);
+}
