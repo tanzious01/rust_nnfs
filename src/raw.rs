@@ -29,9 +29,9 @@ pub fn part2() {
     let bias2 = 3.0;
     let bias3 = 0.5;
 
-    let output1 = dot(&inputs, weights1) + bias1;
-    let output2 = dot(&inputs, weights2) + bias2;
-    let output3 = dot(&inputs, weights3) + bias3;
+    let output1 = dot(&inputs, &weights1) + bias1;
+    let output2 = dot(&inputs, &weights2) + bias2;
+    let output3 = dot(&inputs, &weights3) + bias3;
     let output_vec = vec![output1, output2, output3];
 
     println!("part2 output: {:?}", output_vec);

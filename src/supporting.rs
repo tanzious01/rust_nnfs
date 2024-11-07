@@ -1,4 +1,4 @@
-pub fn dot(input: &Vec<f32>, weight: Vec<f32>) -> f32 {
+pub fn dot(input: &[f32], weight: &[f32]) -> f32 {
     let sum = input
         .iter()
         .zip(weight.iter())
